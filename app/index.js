@@ -1,6 +1,8 @@
 const express = require('express');
 
+const configValidator = require('../config/config.validator');
 const { logger } = require('./utils/');
+
 const Components = require('./components/');
 const Middlewares = require('./middlewares');
 
@@ -12,11 +14,17 @@ class Server {
     }
 
     initializeApp() {
+        this.checkConfig();
         this.initConfig();
         this.setMiddlewares();
         this.setComponents();
         this.setUncaughtExceptionHandler();
         this.setUnhandledRejectionHandler();
+    }
+
+    checkConfig() {
+        this.serverConfig = this.config.serverConfig;
+        configValidator.checkServerConfig(this.serverConfig);
     }
 
     initConfig() {
