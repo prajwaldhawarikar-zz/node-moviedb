@@ -1,5 +1,6 @@
 const express = require('express');
 
+const { logger } = require('./utils/');
 const Components = require('./components/');
 const Middlewares = require('./middlewares');
 
@@ -35,7 +36,7 @@ class Server {
     setUncaughtExceptionHandler() {
         // TODO: Send Email to dev team about unhandledException
         process.on('uncaughtException', (err) => {
-            console.error('Something broke - UncaughtException ', { stack: err.message });
+            logger.error('Something broke - UncaughtException ', { stack: err.message });
             process.exit(1);
         });
     }
@@ -44,7 +45,7 @@ class Server {
     setUnhandledRejectionHandler() {
         // TODO: Send Email to dev team about unhandledRejection
         process.on('unhandledRejection', (err) => {
-            console.error(' Something broke - unhandledRejection ', err);
+            logger.error(' Something broke - unhandledRejection ', err);
             process.exit(1);
         });
     }
