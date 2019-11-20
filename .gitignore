@@ -1,0 +1,6 @@
+#dependencies
+node_modules/
+
+#certs or env files
+cert-text.json
+.env
