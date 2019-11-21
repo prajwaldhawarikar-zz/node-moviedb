@@ -10,9 +10,23 @@ class PersonRoute {
 
     initRoutes() {
         this.app.get(
-            `${this.apiBasePath}/person`,
+            `${this.apiBasePath}/person/:personId/appearances`,
             (req, res, next) => {
-                personController.getPerson(req, res, next);
+                personController.getAppearances(req, res, next);
+            },
+        );
+
+        this.app.get(
+            `${this.apiBasePath}/person/:personId/movies`,
+            (req, res, next) => {
+                personController.getMovieAppearances(req, res, next);
+            },
+        );
+
+        this.app.get(
+            `${this.apiBasePath}/person/:personId/tv`,
+            (req, res, next) => {
+                personController.getTvAppearances(req, res, next);
             },
         );
     }
