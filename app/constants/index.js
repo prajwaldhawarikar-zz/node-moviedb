@@ -1,7 +1,8 @@
-const { codes } = require('./reponseCodes');
-const { keyMappings } = require('./responseKeyMappings');
+const { codes, keyMappings, responseBodyMessages } = require('./reponse');
+// const { keyMappings } = require('./responseKeyMappings');
 
 module.exports = {
     codes,
     keyMappings,
+    responseBodyMessages,
 };

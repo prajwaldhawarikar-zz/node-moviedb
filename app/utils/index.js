@@ -1,4 +1,4 @@
-const responseUtil = require('./ResponseUtil');
+const responseUtil = require('./responseUtil');
 const logger = require('./loggingUtil');
 
 module.exports = {

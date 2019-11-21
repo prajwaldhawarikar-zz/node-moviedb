@@ -11,8 +11,12 @@ exports.fetchAppearances = function (mediaType, personId, details) {
         if (mediaType === 'movie') {
             moviedb.personMovieCredits({ id: personId }, (err, appearances) => {
                 if (err) {
-                    logger.error('Something broke - fetchAppearances', { meta: [{ stack: err.stack }, { input: { mediaType, personId } }] });
-                    reject(err);
+                    if (err.message === 'Not Found') {
+                        resolve([]);
+                    } else {
+                        logger.error('Something broke - fetchAppearances', { meta: [{ stack: err.stack }, { input: { mediaType, personId } }] });
+                        reject(err);
+                    }
                 } else {
                     const movieAppearances = helper.pickKeys(appearances.cast, details);
                     resolve(movieAppearances);
@@ -21,8 +25,12 @@ exports.fetchAppearances = function (mediaType, personId, details) {
         } else if (mediaType === 'tv') {
             moviedb.personTvCredits({ id: personId }, (err, appearances) => {
                 if (err) {
-                    logger.error('Something broke - fetchAppearances', { meta: [{ stack: err.stack }, { input: { mediaType, personId } }] });
-                    reject(err);
+                    if (err.message === 'Not Found') {
+                        resolve([]);
+                    } else {
+                        logger.error('Something broke - fetchAppearances', { meta: [{ stack: err.stack }, { input: { mediaType, personId } }] });
+                        reject(err);
+                    }
                 } else {
                     const tvAppearances = helper.pickKeys(appearances.cast, details);
                     resolve(tvAppearances);
@@ -31,8 +39,12 @@ exports.fetchAppearances = function (mediaType, personId, details) {
         } else {
             moviedb.personCombinedCredits({ id: personId }, (err, appearances) => {
                 if (err) {
-                    logger.error('Something broke - fetchAppearances', { meta: [{ stack: err.stack }, { input: { mediaType, personId } }] });
-                    reject(err);
+                    if (err.message === 'Not Found') {
+                        resolve([]);
+                    } else {
+                        logger.error('Something broke - fetchAppearances', { meta: [{ stack: err.stack }, { input: { mediaType, personId } }] });
+                        reject(err);
+                    }
                 } else {
                     const alleAppearances = helper.pickKeys(appearances.cast, details);
                     resolve(alleAppearances);
