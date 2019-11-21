@@ -1,11 +1,12 @@
-exports.pickKeys = (collection, keys) => {
+exports.pickKeys = (collection, keyMapping) => {
+    const keyMappingObj = keyMapping;
     const result = [];
     collection.forEach((item) => {
         const object = {};
-        keys.forEach((key) => {
+        Object.keys(keyMapping).forEach((key) => {
             const value = item[key];
             if (value) {
-                object[key] = value;
+                object[keyMappingObj[key]] = value;
             }
         });
         result.push(object);
