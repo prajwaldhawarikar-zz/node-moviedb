@@ -1,6 +1,10 @@
 exports.pickKeys = (collection, keyMapping) => {
     const keyMappingObj = keyMapping;
     const result = [];
+    if (!Array.isArray(collection)) {
+        const typeError = new TypeError('Not an valid array');
+        throw typeError;
+    }
     collection.forEach((item) => {
         const object = {};
         Object.keys(keyMapping).forEach((key) => {
@@ -9,7 +13,9 @@ exports.pickKeys = (collection, keyMapping) => {
                 object[keyMappingObj[key]] = value;
             }
         });
-        result.push(object);
+        if (Object.keys(object).length) {
+            result.push(object);
+        }
     });
     return result;
 };
