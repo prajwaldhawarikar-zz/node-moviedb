@@ -2,12 +2,20 @@ const { serverConfig } = require('../../../config');
 const personController = require('./person.controller');
 
 class PersonRoute {
+    /**
+     * Creates an instance of PersonRoute.
+     * @param {Object} app Express app
+     * @memberof PersonRoute
+    */
     constructor(app) {
         this.app = app;
         this.apiBasePath = serverConfig.getApiBasePath();
         this.initRoutes();
     }
-
+    /**
+     * Sets the person component routes
+     * @memberof PersonRoute
+     */
     initRoutes() {
         this.app.get(
             `${this.apiBasePath}/person/:personId/appearances`,

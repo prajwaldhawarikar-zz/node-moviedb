@@ -29,11 +29,9 @@ describe('HELPER - map keys for objects in collection', () => {
             something_which_is_not_there: 'foo',
             this_is_also_not_there: 'bazz',
         });
-        // eslint-disable-next-line no-unused-expressions
         expect(result).to.be.an('array').that.is.empty;
     });
     it('should throw an TypeError - if does not passed collection', async () => {
-        // eslint-disable-next-line no-unused-expressions
         const tempFunction = () => pickKeys(testData.invalid.appearances[0], {
             something_which_is_not_there: 'foo',
             this_is_also_not_there: 'bazz',

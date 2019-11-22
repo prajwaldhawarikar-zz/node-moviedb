@@ -5,7 +5,10 @@ class Middlewares {
         this.app = app;
         this.initModules();
     }
-
+    /**
+     * Set middlewares
+     * @memberof Middlewares
+     */
     initModules() {
         /* eslint-disable no-unused-vars */
         const commonMiddlewares = new CommonMiddlewares(this.app);

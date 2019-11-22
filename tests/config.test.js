@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 const { describe, it } = require('mocha');
 const chai = require('chai');
 const { serverConfig } = require('../config');

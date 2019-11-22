@@ -17,7 +17,6 @@ describe('API - GET /api/person/:personId/appearances - should fetch person\'s a
         }, (err, resp, body) => {
             const result = JSON.parse(body);
             expect(resp.statusCode).to.equal(200);
-            // eslint-disable-next-line no-unused-expressions
             expect(result).to.be.an('array').that.is.not.empty;
             expect(result[0]).to.have.any.keys(['title', 'type', 'date']);
             done();
@@ -50,7 +49,6 @@ describe('API - GET /api/person/:personId/movies - should fetch person\'s appear
         }, (err, resp, body) => {
             const result = JSON.parse(body);
             expect(resp.statusCode).to.equal(200);
-            // eslint-disable-next-line no-unused-expressions
             expect(result).to.be.an('array').that.is.not.empty;
             expect(result[0]).to.have.any.keys(['title', 'character', 'date']);
             done();
@@ -83,7 +81,6 @@ describe('API - GET /api/person/:personId/tv - should fetch person\'s appearance
         }, (err, resp, body) => {
             const result = JSON.parse(body);
             expect(resp.statusCode).to.equal(200);
-            // eslint-disable-next-line no-unused-expressions
             expect(result).to.be.an('array').that.is.not.empty;
             expect(result[0]).to.have.any.keys(['title', 'episode_count', 'date']);
             done();

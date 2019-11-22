@@ -20,6 +20,8 @@
         "func-names":"off",
         "no-plusplus" :"off",
         "no-unused-vars": "warn",
+        "lines-between-class-members": "off",
+        "no-unused-expressions": "off",
         "prefer-destructuring": ["error", {
                 "VariableDeclarator": {
                 "array": false,

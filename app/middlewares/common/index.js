@@ -3,12 +3,20 @@ const bodyParser = require('body-parser');
 const { responseUtil } = require('../../utils');
 
 class CommonMiddlewares {
+    /**
+     *Creates an instance of CommonMiddlewares.
+    * @param {*} app Express app
+    * @memberof CommonMiddlewares
+    */
     constructor(app) {
         this.app = app;
         this.env = app.get('env');
         this.initialize();
     }
-
+    /**
+     * Set middlewares
+     * @memberof CommonMiddlewares
+     */
     initialize() {
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(bodyParser.json());

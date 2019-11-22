@@ -22,24 +22,29 @@ class Server {
         this.setUnhandledRejectionHandler();
     }
 
+    // Checks config, on config missing exits process
     checkConfig() {
         this.serverConfig = this.config.serverConfig;
         configValidator.checkServerConfig(this.serverConfig);
     }
 
+    // Assign config to express app
     initConfig() {
         this.port = this.config.serverConfig.getPort();
         this.app.set('port', this.port);
     }
 
+    // Set all app middlewares
     setMiddlewares() {
         this.middlewares = new Middlewares(this.app);
     }
 
+    // Set components of app by setting routes
     setComponents() {
         this.components = new Components(this.app);
     }
 
+    // Handle uncaught error and exit process
     // eslint-disable-next-line class-methods-use-this
     setUncaughtExceptionHandler() {
         // TODO: Send Email to dev team about unhandledException
@@ -48,7 +53,7 @@ class Server {
             process.exit(1);
         });
     }
-
+    // Handle unrejectd promise rejection and exit process
     // eslint-disable-next-line class-methods-use-this
     setUnhandledRejectionHandler() {
         // TODO: Send Email to dev team about unhandledRejection
@@ -58,6 +63,10 @@ class Server {
         });
     }
 
+    /**
+     * Start API server
+     * @memberof Server
+     */
     startServer() {
         this.app.listen(this.app.get('port'), () => {
             console.log(`Server is running on port: ${this.port}`); // eslint-disable-line no-console
@@ -65,6 +74,7 @@ class Server {
         this.isServerUp();
     }
 
+    // set server health check
     isServerUp() {
         this.app.get('/isServerUp', (req, res) => {
             res.send('Server is up');
