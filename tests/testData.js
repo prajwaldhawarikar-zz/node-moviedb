@@ -1,11 +1,10 @@
 const testData = {
     valid: {
         personIds: [
-            16228,
-            15,
-            157,
+            16828,
+            94128484546585,
         ],
-        appearances: [{
+        appearances: [[{
             id: 1273,
             character: 'Casey Jones (voice)',
             original_title: 'TMNT',
@@ -140,13 +139,15 @@ const testData = {
             vote_average: 0,
             poster_path: '/yTYlkKhIXocZH9YyigZoHeh4vKr.jpg',
             credit_id: '5c92fb3a9251412b5c778943',
-        }],
+        }]],
     },
     invalid: {
         personIds: [
             'shdgv',
-            'fghj',
         ],
+        appearances: [{
+            something_like_this: 'which is not collection',
+        }],
     },
 };
 

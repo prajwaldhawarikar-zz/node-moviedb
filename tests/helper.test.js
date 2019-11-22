@@ -7,7 +7,7 @@ const expect = chai.expect;
 
 describe('HELPER - map keys for objects in collection', () => {
     it('should return collection with only specified fields with mapped names', async () => {
-        const result = pickKeys(testData.valid.appearances, {
+        const result = pickKeys(testData.valid.appearances[0], {
             media_type: 'type',
             title: 'title',
             name: 'title',
@@ -25,7 +25,7 @@ describe('HELPER - map keys for objects in collection', () => {
         ]);
     });
     it('should return empty list if specified keys are not present of any object item in the collection', async () => {
-        const result = pickKeys(testData.valid.appearances, {
+        const result = pickKeys(testData.valid.appearances[0], {
             something_which_is_not_there: 'foo',
             this_is_also_not_there: 'bazz',
         });
@@ -34,7 +34,7 @@ describe('HELPER - map keys for objects in collection', () => {
     });
     it('should throw an TypeError - if does not passed collection', async () => {
         // eslint-disable-next-line no-unused-expressions
-        const tempFunction = () => pickKeys({ something_which_is_not_there: 'foo' }, {
+        const tempFunction = () => pickKeys(testData.invalid.appearances[0], {
             something_which_is_not_there: 'foo',
             this_is_also_not_there: 'bazz',
         });
