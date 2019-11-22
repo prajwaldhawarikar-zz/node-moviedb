@@ -6,7 +6,7 @@ class ServerConfig {
     }
 
     static getPort() {
-        return process.env.PORT ? process.env.PORT : 3000;
+        return 3000;
     }
 
     static getApiUrl() {
