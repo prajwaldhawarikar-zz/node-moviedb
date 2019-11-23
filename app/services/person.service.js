@@ -5,7 +5,7 @@ const { logger } = require('../utils');
 const helper = require('../helpers');
 
 const moviedb = MovieDB(serverConfig.getMovieDbApiKey());
-
+exports.moviedb = moviedb;
 /**
  * Fetches appearances of person
  * @param {string} mediaType movie/tv/all
