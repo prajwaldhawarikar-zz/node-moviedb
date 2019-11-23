@@ -6,6 +6,7 @@ const { personService } = require('../../services');
 
 exports.getAppearances = async function (req, res, next) {
     const personId = Number(req.params.personId);
+
     if (isNaN(personId)) {
         // Invalid person id
         return responseUtil.send(
@@ -14,6 +15,7 @@ exports.getAppearances = async function (req, res, next) {
             res,
         );
     }
+
     try {
         const appearances = await personService.fetchAppearances('all', personId, keyMappings.all);
         if (!appearances.length) {
@@ -29,6 +31,7 @@ exports.getAppearances = async function (req, res, next) {
 
 exports.getMovieAppearances = async function (req, res, next) {
     const personId = req.params.personId;
+
     if (isNaN(personId)) {
         // Invalid person id
         return responseUtil.send(
@@ -37,6 +40,7 @@ exports.getMovieAppearances = async function (req, res, next) {
             res,
         );
     }
+
     try {
         const appearances = await personService.fetchAppearances('movie', personId, keyMappings.movie);
         if (!appearances.length) {
@@ -52,6 +56,7 @@ exports.getMovieAppearances = async function (req, res, next) {
 
 exports.getTvAppearances = async function (req, res, next) {
     const personId = req.params.personId;
+
     if (isNaN(personId)) {
         // Invalid person id
         return responseUtil.send(
@@ -60,6 +65,7 @@ exports.getTvAppearances = async function (req, res, next) {
             res,
         );
     }
+
     try {
         const appearances = await personService.fetchAppearances('tv', personId, keyMappings.tv);
         if (!appearances.length) {

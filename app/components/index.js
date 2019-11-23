@@ -10,6 +10,7 @@ class Components {
         this.app = app;
         this.initModules();
     }
+
     /**
      * Initilize all components and set routes
      * @memberof Components

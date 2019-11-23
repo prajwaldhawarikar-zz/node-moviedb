@@ -15,6 +15,7 @@ describe('HELPER - map keys for objects in collection', () => {
             release_date: 'date',
             first_air_date: 'date',
         });
+
         expect(result).to.have.deep.members([
             { type: 'movie', title: 'TMNT', date: '2007-03-23' },
             { type: 'movie', title: 'Captain America: The First Avenger', date: '2011-07-22' },
@@ -24,6 +25,7 @@ describe('HELPER - map keys for objects in collection', () => {
             { type: 'tv', title: 'Defending Jacob' },
         ]);
     });
+
     it('should return empty list if specified keys are not present of any object item in the collection', async () => {
         const result = pickKeys(testData.valid.appearances.all[0], {
             something_which_is_not_there: 'foo',
@@ -31,6 +33,7 @@ describe('HELPER - map keys for objects in collection', () => {
         });
         expect(result).to.be.an('array').that.is.empty;
     });
+
     it('should throw an TypeError - if does not passed collection', async () => {
         const tempFunction = () => pickKeys(testData.invalid.appearances[0], {
             something_which_is_not_there: 'foo',

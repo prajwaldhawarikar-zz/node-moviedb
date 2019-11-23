@@ -53,6 +53,7 @@ class Server {
             process.exit(1);
         });
     }
+
     // Handle unrejectd promise rejection and exit process
     // eslint-disable-next-line class-methods-use-this
     setUnhandledRejectionHandler() {

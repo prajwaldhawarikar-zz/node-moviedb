@@ -12,6 +12,7 @@ class PersonRoute {
         this.apiBasePath = serverConfig.getApiBasePath();
         this.initRoutes();
     }
+
     /**
      * Sets the person component routes
      * @memberof PersonRoute

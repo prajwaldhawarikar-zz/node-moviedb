@@ -21,9 +21,11 @@ describe('SERVICE - request to MovieDB for fetching appearances ', () => {
                     cast: testData.valid.appearances.all[0],
                 });
         });
+
         after(() => {
             moviedb.personCombinedCredits.restore();
         });
+
         it('should return all appearances of person', async () => {
             const result = await personService.fetchAppearances('all', testData.valid.personIds[0], keyMappings.all);
             expect(result).to.have.deep.members([
@@ -45,9 +47,11 @@ describe('SERVICE - request to MovieDB for fetching appearances ', () => {
                     cast: testData.valid.appearances.movie[0],
                 });
         });
+
         after(() => {
             moviedb.personMovieCredits.restore();
         });
+
         it('should return appearances of person on movie', async () => {
             const result = await personService.fetchAppearances('movie', testData.valid.personIds[0], keyMappings.movie);
             expect(result).to.have.deep.members([
@@ -64,9 +68,11 @@ describe('SERVICE - request to MovieDB for fetching appearances ', () => {
                     cast: testData.valid.appearances.tv[0],
                 });
         });
+
         after(() => {
             moviedb.personTvCredits.restore();
         });
+
         it('should return appearances of person on tv', async () => {
             const result = await personService.fetchAppearances('tv', testData.valid.personIds[0], keyMappings.tv);
             expect(result).to.have.deep.members([
